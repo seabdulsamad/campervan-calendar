@@ -96,6 +96,9 @@ export default {
     label: null,
     bookingId: null,
   }),
+  created() {
+    this.viewType = this.$vuetify.breakpoint.smAndDown ? "day" : "week";
+  },
   methods: {
     onCalendarChange(event) {
       this.label =

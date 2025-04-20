@@ -1,7 +1,18 @@
 <template>
   <v-navigation-drawer v-model="drawer" right temporary app :width="500">
+    <v-app-bar app dark color="primary">
+      <v-layout row wrap align-center>
+        <v-flex v-if="booking" shrink>Booking #{{ booking.id }}</v-flex>
+        <v-spacer />
+        <v-flex shrink>
+          <v-btn icon @click="drawer = false">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-flex>
+      </v-layout>
+    </v-app-bar>
+    <v-flex class="py-8"></v-flex>
     <template v-if="booking">
-      <v-app-bar dark color="primary"> Booking #{{ booking.id }}</v-app-bar>
       <v-flex sm12>
         <detail-list-item label="Order Number">
           {{ booking.id }}
